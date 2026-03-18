@@ -24,11 +24,24 @@
 
             hunting.CheckAnimalsInEnvironment();
 
+            List<Animal> animalsToSee = new List<Animal>
+            {   
+                  new Tiger(70),
+                  new Goose(5.2f),
+                  new Bat(0.9f),
+                  new Goose(4),
+                  new Tiger(90),
+                  new Penguin(15.8f)
+            };
+            animalsToSee.Sort(new CompareWeight(false));
+
+            animalsToSee.ForEach(animal => Console.WriteLine($" {animal.GetType().Name} - {animal.Weight}kg"));
+
         }
 
         public abstract class Animal
         {
-            float Weight { get; set; }
+            public float Weight { get; set; }
 
             public Animal(float weight)
             {
